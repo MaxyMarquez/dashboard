@@ -11,16 +11,20 @@ const Sidebar = () => {
   const isOpen = useSelector((state) => state.menu.isOpen);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const handleResize = () => {
-      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-      if (isDesktop) {
-        dispatch(openMenu());
-      } else {
-        dispatch(closeMenu());
-      }
-    };
+  const handleCloseMenu = () => {
+    dispatch(closeMenu());
+  };
 
+  const handleResize = () => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (isDesktop) {
+      dispatch(openMenu());
+    } else {
+      dispatch(closeMenu());
+    }
+  };
+
+  useEffect(() => {
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -85,6 +89,13 @@ const Sidebar = () => {
                       isOpen ? "open" : "closed"
                     }`
                   }
+                  onClick={() => {
+                    const isMobile =
+                      !window.matchMedia("(min-width: 768px)").matches;
+                    if (isMobile) {
+                      handleCloseMenu();
+                    }
+                  }}
                 >
                   <div className="sidebar-item">
                     {item.icon}
