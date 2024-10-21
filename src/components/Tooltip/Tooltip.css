@@ -105,3 +105,9 @@
     border-right: 10px solid var(--background-menu);
   }
 }
+
+@media (width > 768px) {
+  .tooltip-container {
+    display: none;
+  }
+}
