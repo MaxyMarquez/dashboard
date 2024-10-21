@@ -1,0 +1,31 @@
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+  place-content: center;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.dashboard-content {
+  min-height: 100dvh;
+  overflow-y: auto;
+  padding-inline: 1rem;
+  padding-bottom: 1rem;
+}
+
+.content-area {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (width > 768px) {
+  .dashboard-layout.open {
+    grid-template-columns: var(--sidebar-width-open) 1fr;
+  }
+
+  .dashboard-layout.closed {
+    grid-template-columns: var(--sidebar-width-closed) 1fr;
+  }
+}

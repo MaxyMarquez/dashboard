@@ -1,0 +1,107 @@
+.tooltip-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip-box {
+  position: absolute;
+  color: var(--content-tertiary);
+  background-color: var(--background-menu);
+  border-radius: 4px;
+  padding: 8px;
+  white-space: nowrap;
+  box-shadow: 0px 2px 16px #0006;
+  scale: 0.5;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: left top;
+  transition: opacity 0.3s ease, visibility 0.3s ease, scale 0.3s ease;
+  z-index: 100;
+}
+
+.tooltip-container:hover .tooltip-box {
+  opacity: 1;
+  visibility: visible;
+  scale: 1;
+}
+
+.tooltip-box.top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--background-menu);
+  }
+}
+
+.tooltip-box.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--background-menu);
+  }
+}
+
+.tooltip-box.left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--background-menu);
+  }
+}
+
+.tooltip-box.right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 1rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -0.5rem;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid var(--background-menu);
+  }
+}
