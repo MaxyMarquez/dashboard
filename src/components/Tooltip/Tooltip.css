@@ -107,7 +107,7 @@
 }
 
 @media (width < 768px) {
-  .tooltip-container {
+  .tooltip-box {
     display: none;
   }
 }
