@@ -5,7 +5,6 @@ import { toggleMenu, openMenu, closeMenu } from "@store/slices/menuSlice";
 import DashboardIcon from "@assets/icons/DashboardIcon";
 import Tooltip from "@components/Tooltip/Tooltip";
 import { NavLink } from "react-router-dom";
-import Button from "@components/Button/Button";
 
 const Sidebar = () => {
   const isOpen = useSelector((state) => state.menu.isOpen);

@@ -7,11 +7,12 @@ const Button = ({
   variant = "text",
   children,
   color,
+  className,
   ...rest
 }) => {
   return (
     <button
-      className={`button btn-${variant} btn-${color}`}
+      className={`button btn-${variant} btn-${color} ${className}`}
       type={type}
       {...rest}
     >

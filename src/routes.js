@@ -15,6 +15,11 @@ const routes = [
     name: "Settings",
     element: Settings,
   },
+  {
+    path: "/analitycs",
+    name: "Analitycs",
+    element: Settings,
+  },
 ];
 
 export default routes;
