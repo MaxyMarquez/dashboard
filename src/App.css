@@ -392,6 +392,7 @@
   --content-tertiary: var(--grey600);
   --content-shadow: 0px 2px 16px #0006;
   --content-border-color: rgba(0, 0, 0, 0.1);
+  --content-border-radius: 0.5rem;
 
   --background-main: var(--white);
   --background-main-dark: var(--grey25);

@@ -70,3 +70,48 @@
 .table__cell.center {
   text-align: center;
 }
+
+.table__pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+.table__pagination--input {
+  padding: 0.5rem;
+  width: 40px;
+  text-align: center;
+  appearance: textfield;
+  background-color: transparent;
+  border: 1px solid var(--content-border-color);
+  border-radius: var(--content-border-radius);
+  color: var(--content-tertiary);
+}
+
+.table__pagination--input::-webkit-inner-spin-button,
+.table__pagination--input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.table__pagination--input:focus {
+  outline: none;
+  border-color: var(--content-secondary);
+}
+
+.icon__next,
+.icon__prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--content-tertiary);
+}
+
+.icon__next {
+  transform: translateX(0.1rem);
+}
+
+.icon__prev {
+  transform: rotate(180deg) translateX(0.1rem);
+}

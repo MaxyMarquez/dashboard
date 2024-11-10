@@ -1,10 +1,15 @@
 import { useState } from "react";
 import Button from "@components/Button/Button";
 
+import PlayIcon from "@assets/icons/PlayIcon";
+
 import "./Table.css";
+import { useEffect } from "react";
 
 const Table = ({ columns, rows }) => {
   const [name, setName] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [entriesPerPage, setEntriesPerPage] = useState(10);
 
   const data = rows?.filter((row) =>
     Object.values(row).some((value) =>
@@ -12,13 +17,11 @@ const Table = ({ columns, rows }) => {
     )
   );
 
-  const entriesPerPage = (entrie) => {
-    const arr = [];
-    for (let i = 0; i < entrie; i++) {
-      arr.push(data[i]);
-    }
-    return arr;
-  };
+  const indexOfLastEntry = currentPage * entriesPerPage;
+  const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
+  const currentRows = data.slice(indexOfFirstEntry, indexOfLastEntry);
+
+  const totalPages = Math.ceil(data.length / entriesPerPage);
 
   return (
     <div className="table__container">
@@ -52,7 +55,7 @@ const Table = ({ columns, rows }) => {
               </tr>
             </thead>
             <tbody className="table__body">
-              {data?.map((row, rowIndex) => (
+              {currentRows?.map((row, rowIndex) => (
                 <tr key={rowIndex} className="table__row">
                   {columns.map((column) => (
                     <td
@@ -72,6 +75,76 @@ const Table = ({ columns, rows }) => {
       ) : (
         ""
       )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        paginate={setCurrentPage}
+      />
+    </div>
+  );
+};
+
+const Pagination = ({ currentPage, totalPages, paginate }) => {
+  const [inputValue, setInputValue] = useState(currentPage);
+
+  useEffect(() => {
+    setInputValue(currentPage);
+  }, [currentPage]);
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+
+    if (value === "") {
+      setInputValue("");
+      return;
+    }
+
+    const pageNumber = parseInt(value, 10);
+
+    // Asegurarse de que el número esté dentro de los límites
+    if (!isNaN(pageNumber)) {
+      if (pageNumber >= 1 && pageNumber <= totalPages) {
+        setInputValue(pageNumber);
+        paginate(pageNumber);
+      } else if (pageNumber < 1) {
+        setInputValue(1);
+        paginate(1);
+      } else if (pageNumber > totalPages) {
+        setInputValue(totalPages);
+        paginate(totalPages);
+      }
+    }
+  };
+
+  return (
+    <div className="table__pagination">
+      <Button
+        variant="circle"
+        onClick={() => paginate(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        <PlayIcon className="icon__prev" />
+      </Button>
+
+      <div className="table__pagination--pages">
+        <input
+          className="table__pagination--input"
+          type="number"
+          value={inputValue}
+          onChange={handleInputChange}
+          max={totalPages}
+          min={1}
+        />
+        <span> / {totalPages}</span>
+      </div>
+
+      <Button
+        variant="circle"
+        onClick={() => paginate(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        <PlayIcon className="icon__next" />
+      </Button>
     </div>
   );
 };
