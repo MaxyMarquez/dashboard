@@ -36,6 +36,7 @@
 }
 
 @media (width > 768px) {
-  .navbar-container {
+  .navbar-btn {
+    display: none;
   }
 }

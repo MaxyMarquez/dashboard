@@ -128,7 +128,22 @@
     visibility: hidden;
   }
 
-  .sidebar-btn-close {
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1rem;
+  }
+
+  .sidebar-header.close {
+    justify-content: center;
+  }
+
+  .sidebar-logo.open {
     display: none;
+  }
+
+  .sidebar-btn-icon {
+    stroke: var(--content-tertiary);
+    fill: var(--content-tertiary);
   }
 }

@@ -5,6 +5,9 @@ import { toggleMenu, openMenu, closeMenu } from "@store/slices/menuSlice";
 import DashboardIcon from "@assets/icons/DashboardIcon";
 import Tooltip from "@components/Tooltip/Tooltip";
 import { NavLink } from "react-router-dom";
+import Button from "@components/Button/Button";
+import BurgerIcon from "@assets/icons/BurguerIcon";
+import CrossIcon from "@assets/icons/CrossIcon";
 
 const Sidebar = () => {
   const isOpen = useSelector((state) => state.menu.isOpen);
@@ -67,14 +70,20 @@ const Sidebar = () => {
   return (
     <>
       <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
-        <header className="sidebar-header">
-          logo
-          <button
+        <header className={`sidebar-header ${isOpen ? "open" : "close"}`}>
+          <span className={`sidebar-logo ${isOpen ? "close" : "open"}`}>
+            logo
+          </span>
+          <Button
             className="sidebar-btn-close"
             onClick={() => dispatch(toggleMenu())}
           >
-            Cerrar
-          </button>
+            {isOpen ? (
+              <CrossIcon className="sidebar-btn-icon" />
+            ) : (
+              <BurgerIcon className="sidebar-btn-icon" />
+            )}
+          </Button>
         </header>
 
         <div className="sidebar-content">
