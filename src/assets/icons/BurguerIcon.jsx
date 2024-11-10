@@ -12,7 +12,6 @@ function BurgerIcon({ className }) {
       <g
         stroke-linecap="round"
         stroke-linejoin="round"
-        stroke="#CCCCCC"
         stroke-width="0.048"
       ></g>
       <g>

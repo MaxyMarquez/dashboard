@@ -40,9 +40,9 @@ const Sidebar = () => {
     },
     {
       id: 2,
-      label: "Analytics",
+      label: "Tables",
       icon: <DashboardIcon className="sidebar-icon" />,
-      link: "/analitics",
+      link: "/tables",
     },
     {
       id: 3,

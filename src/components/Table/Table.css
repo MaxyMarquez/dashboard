@@ -1,0 +1,72 @@
+/* Contenedor principal de la tabla */
+.table__container {
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Contenedor de la barra de navegación superior */
+.table__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.table__nav h2 {
+  font-size: 1.5em;
+  color: var(--content-tertiary);
+}
+
+.table__nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el input de búsqueda */
+.table__search {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: 1px solid var(--content-border-color);
+  border-radius: 4px;
+  font-size: 0.9em;
+  outline: none;
+  color: var(--content-tertiary);
+  background-color: transparent;
+}
+
+/* Tabla y contenido */
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table__content {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.table__row {
+  border-bottom: 1px solid var(--content-border-color);
+}
+
+/* Celdas de la tabla */
+.table__cell {
+  padding: 12px;
+  text-align: left;
+  color: var(--content-tertiary);
+}
+
+.table__cell--header {
+  padding: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Centrando solo ciertas celdas */
+.table__cell.center {
+  text-align: center;
+}

@@ -12,20 +12,27 @@
 .nav-sidebar-btn {
   width: 2rem;
   height: 2rem;
-  margin-left: 0.5rem;
+
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.nav-icon {
+  fill: var(--content-tertiary);
+  stroke: var(--content-tertiary);
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.nav-icon.open {
+  transform: rotate(0deg);
 }
 
 .nav-items-right {
   display: flex;
   place-items: center;
   height: 100%;
-}
-
-.nav-icon {
-  fill: #727272;
 }
 
 @media (width > 768px) {

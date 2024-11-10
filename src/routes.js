@@ -2,6 +2,7 @@ import React from "react";
 
 const Dashboard = React.lazy(() => import("@pages/Dashboard"));
 const Settings = React.lazy(() => import("@pages/Settings"));
+const Tables = React.lazy(() => import("@pages/Tables"));
 
 const routes = [
   { path: "/", exact: true, name: "Home" },
@@ -16,9 +17,9 @@ const routes = [
     element: Settings,
   },
   {
-    path: "/analitycs",
-    name: "Analitycs",
-    element: Settings,
+    path: "/tables",
+    name: "Tables",
+    element: Tables,
   },
 ];
 

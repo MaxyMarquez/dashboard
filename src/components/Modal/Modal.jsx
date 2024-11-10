@@ -1,4 +1,6 @@
 import Button from "@components/Button/Button";
+import CrossIcon from "@assets/icons/CrossIcon";
+
 import "./Modal.css";
 
 const Modal = ({ open, close, children }) => {
@@ -10,7 +12,7 @@ const Modal = ({ open, close, children }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <Button className="modal__btn-close" onClick={close}>
-            X
+            <CrossIcon />
           </Button>
           {children}
         </div>
