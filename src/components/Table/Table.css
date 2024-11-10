@@ -26,10 +26,11 @@
 
 /* Estilos para el input de búsqueda */
 .table__search {
+  width: 130px;
   padding: 8px 12px;
   margin-right: 10px;
   border: 1px solid var(--content-border-color);
-  border-radius: 4px;
+  border-radius: var(--content-border-radius);
   font-size: 0.9em;
   outline: none;
   color: var(--content-tertiary);
@@ -114,4 +115,10 @@
 
 .icon__prev {
   transform: rotate(180deg) translateX(0.1rem);
+}
+
+@media (width >= 768px) {
+  .table__search {
+    width: auto;
+  }
 }
