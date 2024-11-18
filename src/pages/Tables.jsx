@@ -1,7 +1,17 @@
 import { useEffect } from "react";
 import Table from "@components/Table/Table";
+import Button from "@components/Button/Button";
+import Dropdown from "@components/Dropdown/Dropdown";
+import { useState } from "react";
 
 const Tables = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
   useEffect(() => {
     document.title = "Dashboard - Tables";
   }, []);
@@ -19,8 +29,13 @@ const Tables = () => {
       ),
     },
     { field: "phone", header: "phone" },
-    { field: "status", header: "status", align: "center" },
-    { field: "actions", header: "actions", align: "center" },
+    { field: "status", header: "status" },
+    {
+      field: "actions",
+      header: "actions",
+
+      cell: (row) => <Button>Edit</Button>,
+    },
   ];
 
   const rows = [
