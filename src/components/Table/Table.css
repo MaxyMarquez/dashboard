@@ -28,7 +28,7 @@
 .table__search {
   width: 130px;
   padding: 8px 12px;
-  margin-right: 10px;
+  margin-left: 10px;
   border: 1px solid var(--content-border-color);
   border-radius: var(--content-border-radius);
   font-size: 0.9em;
@@ -58,7 +58,7 @@
 .table__cell {
   padding: 12px;
   text-align: left;
-  color: var(--content-tertiary);
+  color: var(--content-primary);
 }
 
 .table__cell--header {
@@ -87,7 +87,7 @@
   background-color: transparent;
   border: 1px solid var(--content-border-color);
   border-radius: var(--content-border-radius);
-  color: var(--content-tertiary);
+  color: var(--content-primary);
 }
 
 .table__pagination--input::-webkit-inner-spin-button,
@@ -117,7 +117,7 @@
   transform: rotate(180deg) translateX(0.1rem);
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
   .table__search {
     width: auto;
   }

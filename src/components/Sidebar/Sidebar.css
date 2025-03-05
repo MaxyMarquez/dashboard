@@ -67,7 +67,7 @@
   white-space: nowrap;
   font-size: 1rem;
   text-decoration: none;
-  color: var(--text-primary);
+  color: var(--content-primary);
   opacity: 1;
   transition: opacity 0.3s ease;
 }
@@ -96,6 +96,10 @@
   justify-content: space-between;
   height: calc(100% - (60px + 1rem));
   padding: 1rem 0.7rem;
+}
+
+.sidebar-icon-exit {
+  stroke: var(--content-tertiary);
 }
 
 @media (width > 768px) {
@@ -131,11 +135,16 @@
   .sidebar-header {
     display: flex;
     justify-content: space-between;
-    padding-inline: 1rem;
+    padding-left: 1rem;
   }
+
+  /* .sidebar-header.open {
+    justify-content: center;
+  } */
 
   .sidebar-header.close {
     justify-content: center;
+    padding-left: 0;
   }
 
   .sidebar-logo.open {

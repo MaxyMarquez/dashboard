@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import Button from "@components/Button/Button";
 import BurgerIcon from "@assets/icons/BurguerIcon";
 import CrossIcon from "@assets/icons/CrossIcon";
+import ExitIcon from "@assets/icons/ExitIcon";
 
 const Sidebar = () => {
   const isOpen = useSelector((state) => state.menu.isOpen);
@@ -34,6 +35,10 @@ const Sidebar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [dispatch]);
 
+  const handleExit = () => {
+    sessionStorage.removeItem("token");
+  }
+
   const navItems = [
     {
       id: 1,
@@ -49,9 +54,9 @@ const Sidebar = () => {
     },
     {
       id: 3,
-      label: "Settings",
+      label: "Evaluations",
       icon: <DashboardIcon className="sidebar-icon" />,
-      link: "/settings",
+      link: "/evaluations",
     },
     {
       id: 4,
@@ -93,8 +98,7 @@ const Sidebar = () => {
                 <NavLink
                   to={item.link}
                   className={({ isActive }) =>
-                    `sidebar-link ${isActive ? "active" : ""} ${
-                      isOpen ? "open" : "closed"
+                    `sidebar-link ${isActive ? "active" : ""} ${isOpen ? "open" : "closed"
                     }`
                   }
                   onClick={() => {
@@ -114,12 +118,12 @@ const Sidebar = () => {
             ))}
           </ul>
           <Tooltip text="Salir" right disabled={isOpen}>
-            <div className="sidebar-link">
+            <NavLink to="/login" className="sidebar-link" onClick={handleExit}>
               <div className="sidebar-item">
-                <div className="sidebar-icon">@</div>
+                <div className="sidebar-icon"><ExitIcon className="sidebar-icon-exit" /></div>
                 {isOpen && <span>Salir</span>}
               </div>
-            </div>
+            </NavLink>
           </Tooltip>
         </div>
       </div>

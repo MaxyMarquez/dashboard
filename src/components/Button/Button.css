@@ -5,7 +5,8 @@
 }
 
 .btn-text,
-.btn-circle {
+.btn-circle,
+.btn-outlined {
   font-size: 0.875rem;
   line-height: 1.75;
   border: none;
@@ -25,10 +26,14 @@
 }
 
 .btn-text {
-  color: var(--theme-dark-text);
+  color: var(--content-primary);
+}
+
+.btn-outlined {
+  border: 1px solid var(--content-tertiary);
 }
 
 .button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--background-main-hover-strong);
   /* filter: drop-shadow(0px 2px 8px rgb(255, 255, 255)); */
 }

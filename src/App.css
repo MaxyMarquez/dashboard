@@ -387,17 +387,17 @@
   --black100: rgb(var(--_black100));
   --black50: rgb(var(--_black50));
 
-  --content-primary: var(--grey100);
-  --content-secondary: var(--grey400);
+  --content-primary: var(--black1100);
+  --content-secondary: var(--grey800);
   --content-tertiary: var(--grey600);
   --content-shadow: 0px 2px 16px #0006;
   --content-border-color: rgba(0, 0, 0, 0.1);
   --content-border-radius: 0.5rem;
 
   --background-main: var(--white);
-  --background-main-dark: var(--grey25);
+  --background-main-dark: var(--grey200);
   --background-main-hover: var(--grey50);
-  --background-main-hover-strong: var(--grey100);
+  --background-main-hover-strong: var(--grey300);
   --background-menu: var(--white);
 
   --sidebar-width-open: 250px;
@@ -411,20 +411,15 @@
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   font-style: normal;
-}
-
-html {
   color: var(--content-primary);
-  background-color: var(--background-main-dark);
-  transition: background-color 0.3s ease;
 }
 
 a,
 button {
-  color: var(--content-tertiary);
+  color: var(--content-primary);
 }
 
-:root[data-theme="dark"] {
+[data-theme="dark"] {
   --background-main: var(--grey1000);
   --background-main-dark: rgb(30, 32, 36);
   --background-main-hover: var(--grey800);
@@ -433,33 +428,40 @@ button {
 
   --content-primary: var(--grey100);
   --content-secondary: var(--grey400);
-  --content-tertiary: var(--grey400);
+  --content-tertiary: var(--grey600);
   --content-border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Estilos para la barra de scroll */
 ::-webkit-scrollbar {
-  width: 10px; /* Ancho de la barra de scroll vertical */
-  height: 10px; /* Altura de la barra de scroll horizontal */
-  opacity: 0; /* Oculta la barra inicialmente */
-  transition: opacity 0.3s ease; /* Transición suave */
+  width: 10px;
+  /* Ancho de la barra de scroll vertical */
+  height: 10px;
+  /* Altura de la barra de scroll horizontal */
+  opacity: 0;
+  /* Oculta la barra inicialmente */
+  transition: opacity 0.3s ease;
+  /* Transición suave */
 }
 
 /* Color de fondo de la barra de scroll */
 ::-webkit-scrollbar-track {
-  background-color: var(--white-10); /* Fondo de la pista */
+  background-color: var(--white-10);
+  /* Fondo de la pista */
   border-radius: 10px;
 }
 
 /* Color y estilo del "thumb" (la parte que se mueve en la barra) */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--white-10); /* Color del "thumb" */
+  background-color: var(--white-10);
+  /* Color del "thumb" */
   border-radius: 10px;
 }
 
 /* Color cuando el "thumb" está siendo activamente arrastrado */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Cambia el color cuando el cursor pasa por encima */
+  background-color: #555;
+  /* Cambia el color cuando el cursor pasa por encima */
 }
 
 *::-webkit-scrollbar:active,

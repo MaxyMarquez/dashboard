@@ -11,6 +11,7 @@ import { useState } from "react";
 import { setTheme } from "@store/slices/themeSlice";
 import Avatar from "@components/Avatar/Avatar";
 import { useSelector } from "react-redux";
+import useTheme from "@hooks/useTheme";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -23,15 +24,7 @@ const Navbar = () => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
-  const handleThemeLight = () => {
-    dispatch(setTheme("light"));
-    setAnchorEl(null);
-  };
-
-  const handleThemeDark = () => {
-    dispatch(setTheme("dark"));
-    setAnchorEl(null);
-  };
+  const { theme, toggleTheme } = useTheme();
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -64,8 +57,8 @@ const Navbar = () => {
             anchorEl={anchorEl}
             onClose={handleClose}
           >
-            <DropdownItem onClick={handleThemeDark}>Dark Mode</DropdownItem>
-            <DropdownItem onClick={handleThemeLight}>Light</DropdownItem>
+            <DropdownItem onClick={toggleTheme}>Dark Mode</DropdownItem>
+            <DropdownItem onClick={toggleTheme}>Light</DropdownItem>
             <DropdownItem>Logout</DropdownItem>
           </Dropdown>
         </div>

@@ -6,7 +6,7 @@
 
 .tooltip-box {
   position: absolute;
-  color: var(--content-tertiary);
+  color: var(--content-primary);
   background-color: var(--background-menu);
   border-radius: 4px;
   padding: 8px;

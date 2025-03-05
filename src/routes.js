@@ -1,7 +1,7 @@
 import React from "react";
 
-const Dashboard = React.lazy(() => import("@pages/Dashboard"));
-const Settings = React.lazy(() => import("@pages/Settings"));
+const Dashboard = React.lazy(() => import("@pages/Dashboard/Dashboard"));
+const EvaluationForm = React.lazy(() => import("@pages/Evaluations/EvaluationForm"));
 const Tables = React.lazy(() => import("@pages/Tables"));
 
 const routes = [
@@ -12,9 +12,9 @@ const routes = [
     element: Dashboard,
   },
   {
-    path: "/settings",
-    name: "Settings",
-    element: Settings,
+    path: "/evaluations",
+    name: "Evaluations",
+    element: EvaluationForm,
   },
   {
     path: "/tables",

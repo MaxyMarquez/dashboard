@@ -6,10 +6,11 @@ import PlayIcon from "@assets/icons/PlayIcon";
 import "./Table.css";
 import { useEffect } from "react";
 
-const Table = ({ columns, rows }) => {
+const Table = ({ columns, rows, title, onClick }) => {
   const [name, setName] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
+  console.log(rows);
 
   const data = rows?.filter((row) =>
     Object.values(row).some((value) =>
@@ -19,22 +20,25 @@ const Table = ({ columns, rows }) => {
 
   const indexOfLastEntry = currentPage * entriesPerPage;
   const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
-  const currentRows = data.slice(indexOfFirstEntry, indexOfLastEntry);
+  const currentRows = data?.slice(indexOfFirstEntry, indexOfLastEntry);
 
-  const totalPages = Math.ceil(data.length / entriesPerPage);
+  const totalPages = Math.ceil(data?.length / entriesPerPage);
 
   return (
     <div className="table__container">
       <div className="table__nav">
-        <h2>Title</h2>
+        <h2>{title}</h2>
         <div className="table__nav-right">
+          <Button onClick={onClick}>Agregar</Button>
           <input
             type="text"
             className="table__search"
             placeholder="Search..."
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              setCurrentPage(1);
+            }}
           />
-          <Button>+</Button>
         </div>
       </div>
       {data ? (
@@ -45,9 +49,8 @@ const Table = ({ columns, rows }) => {
                 {columns.map((column) => (
                   <th
                     key={column.field}
-                    className={`table__cell table__cell--header ${
-                      column.align || ""
-                    }`}
+                    className={`table__cell table__cell--header ${column.align || ""
+                      }`}
                   >
                     {column.header}
                   </th>
@@ -60,9 +63,8 @@ const Table = ({ columns, rows }) => {
                   {columns.map((column) => (
                     <td
                       key={column.field}
-                      className={`table__cell ${column.className || ""} ${
-                        column.align || ""
-                      }`}
+                      className={`table__cell ${column.className || ""} ${column.align || ""
+                        }`}
                     >
                       {column.cell ? column.cell(row) : row[column.field]}
                     </td>
